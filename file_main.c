@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/27 10:23:54 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/27 11:01:15 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct			s_mynode
 //structure principale
 typedef struct			s_mywin
 {
-	t_mypolygon			s_polygon;
+	t_mypolygon			polygon_lst;
 
 }						t_mywin;
 
@@ -87,17 +87,17 @@ t_myvec			*ft_get_and_create_vertex(char *line, int *j)
 	return (s_vertex);
 }
 
-void			ft_add_vertice(t_myvec **vertex_lst, t_myvec vertex_node)
+void			ft_add_vertice(t_myvec **vertex_lst, t_myvec *vertex_node)
 {
 	if (*vertex_lst == NULL)
 	{
-		vertex_node.next = NULL;
-		*vertex_lst = &vertex_node;
+		vertex_node->next = NULL;
+		*vertex_lst = vertex_node;
 	}
 	else
 	{
-		vertex_node.next = *vertex_lst;
-		*vertex_lst = &vertex_node;
+		vertex_node->next = *vertex_lst;
+		*vertex_lst = vertex_node;
 	}
 }
 
@@ -116,19 +116,27 @@ t_mypolygone	*ft_create_polygone_node(t_vec *vertex_lst)
 	return(polygone_node);
 }
 
-void	ft_add_polygone(t_mypolygone **polygone_lst, t_mypolygone polygone_node)
+void	ft_add_polygone(t_mypolygone **polygone_lst, t_mypolygone *polygone_node)
 {
-
-
+	if (*polygone_lst == NULL)
+	{
+		polygone_node->next = NULL;
+		*polygone_lst = polygone_node;
+	}
+	else
+	{
+		polygone_node->next = *polygone_lst;
+		*polygone_lst = polygone_node;
+	}
 }
 
 t_mypolygon		ft_read_the_polygon_file(void)
 {
 	int				fd;
 	char			*line;
-	t_myvec			vertex_node;
+	t_myvec			*vertex_node;
 	t_myvec			*vertex_lst;
-	t_mypolygon		polygon_node
+	t_mypolygon		*polygon_node;
 	t_mypolygon		*polygon_lst;
 	int				j;
 
@@ -142,39 +150,34 @@ t_mypolygon		ft_read_the_polygon_file(void)
 		ft_go_to_first_vertice(line, &j);
 		while(line[j] != ':')
 		{
-			vertex_node = ft_get_vertex(line, &j);
+			vertex_node = ft_get_and_create_vertex_node(line, &j);
 			ft_add_vertex(&vertex_lst, vertex_node);
 		}
-		polygone_node = ft_create_polygone_node(t_myvec );
+		polygone_node = ft_create_polygone_node(t_myvec *vertex_lst);
 		ft_add_polygone(&polygon_lst, polygon_node);
 	}
+	return (polygon_lst);
 }
 
-void	ft_display_the_polygon_list(void)
+void	ft_display_the_polygon_list(t_mypolygon *polygon_lst)
 {
+	t_mypolygon		*keep;
 
+	keep = polygone_lst;
+	while(polygone_lst != NULL)
+	{
+		printf("first verrtice =%d\n", polygon_lst->);
+		polygone_lst = polygon->next;
+	}
+	polygone_lst = keep;
 }
 
 int		main(void)
 {
 	t_mywin		s_win;
 
-	s_win.s_polygon = ft_read_the_polygon_file();
-	ft_display_the_polygon_list();
-
-
-
-	t_mypolygon		*s_polygon_lst;
-	t_mypolygon		*node_polygon;
-
-
-	s_polygon_lst = NULL;               //this is the global pointer
-	node_polygon = NULL;
-
-
-
-
-
-
+	printf("hello chef Inca\n");
+	s_win.polygon_lst = ft_read_the_polygon_file();
+	ft_display_the_polygon_list(s_win.polygon_lst);
 	return (1);
 }
