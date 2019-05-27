@@ -6,9 +6,11 @@
 #    By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/26 15:30:53 by jchardin          #+#    #+#              #
-#    Updated: 2019/05/27 13:34:14 by jchardin         ###   ########.fr        #
+#    Updated: 2019/05/27 15:48:47 by jchardin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all:
-	gcc *.c libft.a -fsanitize=address -g
+	gcc *.c libft.a -g
+   
+#   -fsanitize=address -g
