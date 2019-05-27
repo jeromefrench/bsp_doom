@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/27 14:07:14 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/27 14:14:26 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_myvec			*ft_get_and_create_vertex_node(char *line, int *j)
 	t_myvec		*s_vertex;
 
 	s_vertex = (t_myvec*)malloc(sizeof(t_myvec));
-	*j = *j + 1;
+	//*j = *j + 1;
 	while(ft_isdigit(line[*j]) || line[*j] == '-' )
 	{
 		k = 0;
@@ -151,10 +151,11 @@ void	ft_read_the_polygon_file(t_mypolygon *polygon_lst)
 	{
 		j = 0;
 		ft_go_to_first_vertex(line, &j);
+		j++;
 		while(line[j] != ':')
 		{
 			vertex_node = ft_get_and_create_vertex_node(line, &j);
-			ft_add_vertex(vertex_lst, vertex_node);
+			ft_add_vertex(&vertex_lst, vertex_node);
 		}
 		polygon_node = ft_create_polygon_node(vertex_lst);
 		ft_add_polygon(&polygon_lst, polygon_node);
