@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/27 17:57:07 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/27 18:11:46 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <stdlib.h>
 #include "libft.h"
 
-typedef struct					s_myvec
+typedef struct			s_myvec
 {
-	float						x;
-	float						y;
-	float						z;
-	struct s_myvec				*next;
-}								t_myvec;
+	float				x;
+	float				y;
+	float				z;
+	struct s_myvec		*next;
+}						t_myvec;
 
 //indice allow you to build multiple triangles using share vectices
 typedef struct			s_mypolygon
@@ -55,3 +55,9 @@ typedef struct			s_mywin
 
 void			ft_display_the_polygon_list(t_mypolygon *polygon_lst);
 t_mypolygon		*ft_read_the_polygon_file(void);
+
+
+
+
+
+

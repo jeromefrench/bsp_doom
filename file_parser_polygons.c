@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:54:18 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/27 17:57:20 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/27 18:03:30 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ void			ft_add_vertex(t_myvec **vertex_lst, t_myvec *vertex_node)
 void			ft_go_to_first_vertex(char *line, int *j)
 {
 	while(line[*j] != ':' )
-	{
 		*j = *j + 1;
-	}
 	*j = *j + 1;
 }
 
