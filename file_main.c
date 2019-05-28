@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 17:14:01 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/28 17:20:29 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,17 @@ t_myvec		ft_calculate_polygon_normal(t_mypolygon *polygon_node)
 
 int			ft_calculate_number_of_vertex(t_mypolygon *polygon_lst)
 {
-	t_mypolygon		*keep;
 	t_myvec			*keep_vec;
 	int				nbr_vertex;
 
-	keep = polygon_lst;
-	while (polygon_lst != NULL)
+	keep_vec = polygon_lst->vertex_lst;
+	nbr_vertex = 0;
+	while (polygon_lst->vertex_lst != NULL)
 	{
-		keep_vec = polygon_lst->vertex_lst;
-		nbr_vertex = 0;
-		while (polygon_lst->vertex_lst != NULL)
-		{
-			nbr_vertex++;
-			polygon_lst->vertex_lst = polygon_lst->vertex_lst->next;
-		}
-		polygon_lst->vertex_lst = keep_vec;
-		polygon_lst = polygon_lst->next;
+		polygon_lst->vertex_lst = polygon_lst->vertex_lst->next;
+		nbr_vertex++;
 	}
-	polygon_lst = keep;
+	polygon_lst->vertex_lst = keep_vec;
 	return (nbr_vertex);
 }
 
@@ -133,7 +126,7 @@ int			main(void)
 
 	printf("hello chef Inca\n");
 	s_win.polygon_lst = ft_read_the_polygon_file();
-//	ft_display_the_polygon_list(s_win.polygon_lst);
+	ft_display_the_polygon_list(s_win.polygon_lst);
 	ft_process_polygon(s_win.polygon_lst);
 	return (1);
 }
