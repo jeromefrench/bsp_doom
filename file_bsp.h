@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 17:53:43 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/28 17:55:17 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct			s_mywin
 	t_mypolygon			*polygon_lst;
 
 }						t_mywin;
-
 
 void			ft_display_the_polygon_list(t_mypolygon *polygon_lst);
 t_mypolygon		*ft_read_the_polygon_file(void);
