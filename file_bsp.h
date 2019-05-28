@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/27 18:11:46 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/28 08:04:03 by pi               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include "libft.h"
+#include "get_next_line.h"
 
 typedef struct			s_myvec
 {
