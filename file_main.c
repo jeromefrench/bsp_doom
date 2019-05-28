@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 16:13:49 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/28 17:14:01 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,27 @@ t_myvec		ft_calculate_polygon_normal(t_mypolygon *polygon_node)
 	return (normal);
 }
 
-int			ft_calculate_number_of_vertex(t_mypolygon *polygon_node)
+int			ft_calculate_number_of_vertex(t_mypolygon *polygon_lst)
 {
-	int		number_of_vertex;
+	t_mypolygon		*keep;
+	t_myvec			*keep_vec;
+	int				nbr_vertex;
 
-	number_of_vertex = 0;
-	(void)polygon_node;
-	return (number_of_vertex);
+	keep = polygon_lst;
+	while (polygon_lst != NULL)
+	{
+		keep_vec = polygon_lst->vertex_lst;
+		nbr_vertex = 0;
+		while (polygon_lst->vertex_lst != NULL)
+		{
+			nbr_vertex++;
+			polygon_lst->vertex_lst = polygon_lst->vertex_lst->next;
+		}
+		polygon_lst->vertex_lst = keep_vec;
+		polygon_lst = polygon_lst->next;
+	}
+	polygon_lst = keep;
+	return (nbr_vertex);
 }
 
 int			ft_calculate_number_of_indices(t_mypolygon *polygon_node)
@@ -102,12 +116,11 @@ void		ft_process_polygon(t_mypolygon *polygon_lst)
 	{
 		printf("polygone n=%d\n", i);
 		polygon_lst->normal = ft_calculate_polygon_normal(polygon_lst);
-		printf("the normal result =%f =%f =%f\n",	polygon_lst->vertex_lst->x,
- 			   										polygon_lst->vertex_lst->y,
-													polygon_lst->vertex_lst->z);
-		//polygon_lst->number_of_vertex = ft_calculate_number_of_vertex(polygon_lst);
-		//polygon_lst->number_of_indices = ft_calculate_number_of_indices(polygon_lst);
+		printf("the normal result =%f =%f =%f\n",	polygon_lst->vertex_lst->x, polygon_lst->vertex_lst->y, polygon_lst->vertex_lst->z);
+		polygon_lst->number_of_vertex = ft_calculate_number_of_vertex(polygon_lst);
+		printf("Number of vertex =%d\n", polygon_lst->number_of_vertex);
 		//polygon_lst->indices = ft_calculate_indices_tab(polygon_lst);
+		//polygon_lst->number_of_indices = ft_calculate_number_of_indices(polygon_lst);
 		polygon_lst = polygon_lst->next;
 		i++;
 	}
