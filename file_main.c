@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 08:40:13 by pi               ###   ########.fr       */
+/*   Updated: 2019/05/28 14:25:28 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ void			ft_display_the_polygon_list(t_mypolygon *polygon_lst)
 	polygon_lst = keep;
 }
 
-float		ft_cross_product(t_myvec v1, t_myvec v2)
+t_myvec		ft_cross_product(t_myvec v1, t_myvec v2)
 {
-	float		result;
+	t_myvec		result;
 
-	result = (v1.x * v2.x) + (v1.y * v2.y) + (v1.z * v2.z);
+	result.x = (v1.y * v2.z) - (v1.z * v2.y);
+	result.y = (v1.z * v2.x) - (v1.x * v2.z);
+	result.z = (v1.x * v2.y) - (v1.y * v2.x);
 	return (result);
 }
 
