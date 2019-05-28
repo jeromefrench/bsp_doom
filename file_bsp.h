@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 15:58:22 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/28 17:53:43 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,4 @@ t_mypolygon		*ft_read_the_polygon_file(void);
 float			ft_dot_product(t_myvec v1, t_myvec v2);
 t_myvec			ft_cross_product(t_myvec v1, t_myvec v2);
 t_myvec			ft_calculate_normal_of_points(t_myvec vertex1, t_myvec vertex2, t_myvec vertex3);
+void			ft_process_polygon(t_mypolygon *polygon_lst);
