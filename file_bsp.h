@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 17:55:17 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 10:41:18 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include <stdlib.h>
 #include "libft.h"
 #include "get_next_line.h"
+
+typedef enum			e_myclass
+{
+	FRONT,
+	BACK,
+	SPANNING,
+	ON_PLANE,
+}						t_myclass;
 
 typedef struct			s_myvec
 {
