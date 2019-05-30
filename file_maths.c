@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 14:37:01 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 15:57:33 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 11:13:35 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,15 @@ t_myvec		ft_calculate_normal_of_points(t_myvec vertex1, t_myvec vertex2, t_myvec
 	v2.y = vertex3.y - vertex1.y;
 	v2.z = vertex3.z - vertex1.z;
 	result = ft_cross_product(v1, v2);
+	return (result);
+}
+
+t_myvec		ft_vector_from_two_points(t_myvec v2, t_myvec v1)
+{
+	t_myvec			result;
+
+	result.x = v2.x - v1.x;
+	result.y = v2.y - v1.y;
+	result.z = v2.z - v1.z;
 	return (result);
 }

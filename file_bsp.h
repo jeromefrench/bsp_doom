@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/30 10:41:18 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 11:39:12 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,5 @@ float			ft_dot_product(t_myvec v1, t_myvec v2);
 t_myvec			ft_cross_product(t_myvec v1, t_myvec v2);
 t_myvec			ft_calculate_normal_of_points(t_myvec vertex1, t_myvec vertex2, t_myvec vertex3);
 void			ft_process_polygon(t_mypolygon *polygon_lst);
+t_myvec			ft_vector_from_two_points(t_myvec v2, t_myvec v1);
+int				ft_classify_polygon(t_mypolygon *plane, t_mypolygon *polygon_node);
