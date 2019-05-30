@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 14:37:01 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/30 11:13:35 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 13:42:27 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,12 @@ t_myvec		ft_vector_from_two_points(t_myvec v2, t_myvec v1)
 	result.y = v2.y - v1.y;
 	result.z = v2.z - v1.z;
 	return (result);
+}
+
+int		ft_abs(int number)
+{
+	//prevoir le int min
+	if (number < 0)
+		number *= -1;
+	return (number);
 }

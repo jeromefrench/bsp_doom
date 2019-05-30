@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/30 12:07:32 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 13:57:37 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,9 @@ void			ft_display_the_polygon_list(t_mypolygon *polygon_lst)
 	polygon_lst = keep;
 }
 
-//The wall with the lowest score in the list wins and becomes the splitter for that node.Here's the formula
-//score=abs(frontfaces-backfaces)+(splits*8)
-t_mypolygon		*ft_select_the_best_poly_splitter()
+void		ft_split_polygon()
 {
-
-
 }
-
 
 int			main(void)
 {
