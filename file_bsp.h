@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/30 13:43:46 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/05/30 16:22:33 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,8 @@ void			ft_display_the_polygon_list(t_mypolygon *polygon_lst);
 t_mypolygon		*ft_read_the_polygon_file(void);
 void			ft_process_polygon(t_mypolygon *polygon_lst);
 int				ft_classify_polygon(t_mypolygon *plane, t_mypolygon *polygon_node);
+int				ft_classify_point(t_myvec point, t_mypolygon *plane);
+void			ft_split_polygon(t_mypolygon *poly,
+							t_mypolygon *plane,
+							t_mypolygon *front_split,
+							t_mypolygon *back_split);
