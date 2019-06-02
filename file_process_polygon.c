@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 17:50:04 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 17:51:16 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/02 11:20:26 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ void		ft_process_polygon(t_mypolygon *polygon_lst)
 	t_mypolygon		*keep;
 	int				i, j;
 
+	printf("\n==>Process polygone lst<==");
 	keep = polygon_lst;
 	i = 0;
 	while (polygon_lst != NULL)
 	{
-		printf("\n");
-		printf("polygone n=%d\n", i);
+		printf("\npolygone n=%d\n", i);
 		polygon_lst->normal = ft_calculate_polygon_normal(polygon_lst);
 		printf("the normal result =%f =%f =%f\n",	polygon_lst->vertex_lst->x, polygon_lst->vertex_lst->y, polygon_lst->vertex_lst->z);
 		polygon_lst->number_of_vertex = ft_calculate_number_of_vertex(polygon_lst);

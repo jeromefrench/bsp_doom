@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 18:04:25 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/01 18:04:50 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/02 11:17:04 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void			ft_display_the_polygon_list(t_mypolygon *polygon_lst)
 	i = 0;
 	while (polygon_lst != NULL)
 	{
-		printf("\n\nPolynome n=%d\n", i);
+		printf("\nPolynome n=%d\n", i);
 		keep_vec = polygon_lst->vertex_lst;
 		j = 0;
 		while (polygon_lst->vertex_lst != NULL)
 		{
-			printf("vertice n=%d\n", j);
-			printf("x =%f\n", polygon_lst->vertex_lst->x);
-			printf("y =%f\n", polygon_lst->vertex_lst->y);
+			printf("vertice n=%d\t", j);
+			printf("x =%f\t", polygon_lst->vertex_lst->x);
+			printf("y =%f\t", polygon_lst->vertex_lst->y);
 			printf("z =%f\n", polygon_lst->vertex_lst->z);
 			j++;
 			polygon_lst->vertex_lst = polygon_lst->vertex_lst->next;

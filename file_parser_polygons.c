@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:54:18 by jchardin          #+#    #+#             */
-/*   Updated: 2019/05/28 17:27:16 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/02 11:17:47 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,26 @@
 t_myvec			*ft_get_and_create_vertex_node(char *line, int *j)
 {
 	int			k;
-	char		nbr[100];
+	char		nbr[1000];
 	t_myvec		*s_vertex;
 
 	s_vertex = (t_myvec*)malloc(sizeof(t_myvec));
 		k = 0;
-	while(ft_isdigit(line[*j]) || line[*j] == '-' )
+	while(ft_isdigit(line[*j]) || line[*j] == '-' || line[*j] == '.' )
 	{
 		nbr[k] = line[*j];
 		*j = *j + 1;
 		k++;
 	}
 	nbr[k] = '\0';
+	//printf("le nombre =%s\n", nbr);
 	s_vertex->x = ft_atoi(nbr);
+	//printf(" =%f\n", ft_atoi(nbr));
 
 		k = 0;
-		*j = *j + 1;
-	while(ft_isdigit(line[*j]) || line[*j] == '-' )
+		while (line[*j] == ' ')
+			*j = *j + 1;
+	while(ft_isdigit(line[*j]) || line[*j] == '-' || line[*j] == '.' )
 	{
 		nbr[k] = line[*j];
 		*j = *j + 1;
@@ -39,10 +42,12 @@ t_myvec			*ft_get_and_create_vertex_node(char *line, int *j)
 	}
 	nbr[k] = '\0';
 	s_vertex->y = ft_atoi(nbr);
+	//printf(" =%f\n", ft_atoi(nbr));
 
 		k = 0;
-		*j = *j + 1;
-	while(ft_isdigit(line[*j]) || line[*j] == '-' )
+		while (line[*j] == ' ')
+			*j = *j + 1;
+	while(ft_isdigit(line[*j]) || line[*j] == '-' || line[*j] == '.' )
 	{
 		nbr[k] = line[*j];
 		*j = *j + 1;
@@ -50,6 +55,8 @@ t_myvec			*ft_get_and_create_vertex_node(char *line, int *j)
 	}
 	nbr[k] = '\0';
 	s_vertex->z = ft_atoi(nbr);
+	//printf(" =%f\n", ft_atoi(nbr));
+	//printf("\n\n");
 	return (s_vertex);
 }
 
@@ -115,12 +122,16 @@ t_mypolygon		*ft_read_the_polygon_file(void)
 		vertex_lst = NULL;
 		j = 0;
 		ft_go_to_first_vertex(line, &j);
+		//printf("the first =%c\n", line[j]);
 		while(line[j] != ':' && line[j] != '\0')
 		{
 			vertex_node = ft_get_and_create_vertex_node(line, &j);
 			ft_add_vertex(&vertex_lst, vertex_node);
 			if (line[j] != ':')
-				j++;
+			{
+				while(line[j] == ' ' || line[j] == ';')
+					j++;
+			}
 		}
 		polygon_node = ft_create_polygon_node(vertex_lst);
 		ft_add_polygon(&polygon_lst, polygon_node);

@@ -6,7 +6,7 @@
 /*   By: lomasse <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 02:55:41 by lomasse           #+#    #+#             */
-/*   Updated: 2019/03/20 17:34:06 by lomasse          ###   ########.fr       */
+/*   Updated: 2019/06/02 10:55:56 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				ft_putendl_fd(char const *s, int fd);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
-int					ft_atoi(const char *str);
+float					ft_atoi(const char *str);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_strchrlen(char *str, int c);
