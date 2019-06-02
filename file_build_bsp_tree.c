@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 18:02:54 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/02 14:05:24 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/02 14:50:18 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	if (front_list == NULL)
 	{
 		t_mynode		*leaf_node;
+
+		leaf_node = (t_mynode*)malloc(sizeof(t_mynode));
 		//zero memory (new_node node, ...)
 		leaf_node->is_leaf = TRUE;
 		leaf_node->is_solid = FALSE;
@@ -85,6 +87,8 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	else
 	{
 		t_mynode		*new_node;
+
+		new_node = (t_mynode*)malloc(sizeof(t_mynode));
 		//zero memory (new_node, ...)
 		new_node->is_leaf = FALSE;
 		current_node->front = new_node;
@@ -94,6 +98,8 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	if (back_list == NULL)
 	{
 		t_mynode		*leaf_node;
+
+		leaf_node = (t_mynode*)malloc(sizeof(t_mynode));
 		//ZeroMemory(leaf_node,sizeof(leaf_node));
 		leaf_node->is_leaf = TRUE;
 		leaf_node->is_solid = TRUE;
@@ -102,6 +108,8 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	else
 	{
 		t_mynode		*new_node;
+
+		new_node = (t_mynode*)malloc(sizeof(t_mynode));
 		//ZeroMemory(new_node,sizeof(new_node));
 		new_node-> is_leaf = FALSE;
 		current_node->back = new_node;
