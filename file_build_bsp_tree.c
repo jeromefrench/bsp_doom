@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/01 18:02:54 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/03 15:58:22 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/03 16:09:22 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	t_mynode		*new_back;
 	int				result;
 
-
 	printf("\n=======================>CREATION DUN NODE\n");
 	keep = polygon_lst;
 	printf("== La liste des poly :\n");
@@ -33,12 +32,9 @@ void		ft_build_bsp_tree(t_mynode *current_node, t_mypolygon *polygon_lst)
 	}
 	polygon_lst = keep;
 
-
-
 	back_lst = NULL;
 	front_lst = NULL;
 	current_node->splitter = ft_select_the_best_poly_splitter(polygon_lst);
-
 
 
 	printf("======> On choisit le spliter ayant %d vertex\n", current_node->splitter->number_of_vertex);
