@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:54:18 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/02 11:17:47 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/03 09:52:30 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ t_myvec			*ft_get_and_create_vertex_node(char *line, int *j)
 
 void			ft_add_vertex(t_myvec **vertex_lst, t_myvec *vertex_node)
 {
+	t_myvec *keep;
+
+	keep = *vertex_lst;
 	if (*vertex_lst == NULL)
 	{
 		vertex_node->next = NULL;
@@ -69,8 +72,11 @@ void			ft_add_vertex(t_myvec **vertex_lst, t_myvec *vertex_node)
 	}
 	else
 	{
-		vertex_node->next = *vertex_lst;
-		*vertex_lst = vertex_node;
+		while ((*vertex_lst)->next != NULL)
+			*vertex_lst = (*vertex_lst)->next;
+		vertex_node->next = NULL;
+		(*vertex_lst)->next = vertex_node;
+		*vertex_lst = keep;
 	}
 }
 
