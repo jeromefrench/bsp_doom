@@ -6,26 +6,32 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/04 12:46:20 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/04 15:00:45 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "file_bsp.h"
+#include <math.h>
 
-void		ft_browse_the_bsp(t_mynode *s_node, char **tab, int decalage, int rang)
+void		ft_browse_the_bsp(t_mynode *s_node, char **tab,int decalage_pere, int decalage, int rang, int profondeur_max)
 {
 	int middle = 26;
 	char		*value;
 
 
 	value = ft_itoa((int)s_node->splitter->number_of_vertex);
-	tab[rang][middle + decalage] = value[0];
+	tab[rang][middle + decalage + decalage_pere] = value[0];
+
+
+	decalage_pere = decalage + decalage_pere;
+
 
 	if (s_node->front->is_leaf != TRUE)
-		ft_browse_the_bsp(s_node->front, tab, decalage + 2,  rang + 1);
+		ft_browse_the_bsp(s_node->front, tab, decalage_pere, pow(2, profondeur - (rang + 1)) ,  rang + 1, 4);
+
 
 	if (s_node->back->is_leaf != TRUE)
-		ft_browse_the_bsp(s_node->back, tab, decalage - 2,  rang + 1);
+		ft_browse_the_bsp(s_node->back, tab, decalage_pere, -pow(2, profondeur - (rang + 1)) ,  rang + 1, 4);
 }
 
 void		ft_display_the_bsp(t_mynode *s_node, char **tab)
@@ -72,6 +78,7 @@ int			main(void)
 	t_mynode	s_node;
 	char		**tab;
 	int			decalage = 0;
+	int			profondeur_maxi = 4;
 
 
 
@@ -82,9 +89,7 @@ int			main(void)
 	ft_build_bsp_tree((&s_node), s_win.polygon_lst);
 
 	ft_init_tab(&tab);
-
-	ft_browse_the_bsp(&s_node, tab, decalage, 0);
-
+	ft_browse_the_bsp(&s_node, tab,0, decalage, 0, profondeur_maxi);
 	ft_display_the_bsp(&s_node, tab);
 
 
