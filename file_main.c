@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/04 15:00:45 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/04 15:06:59 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ void		ft_browse_the_bsp(t_mynode *s_node, char **tab,int decalage_pere, int deca
 
 
 	if (s_node->front->is_leaf != TRUE)
-		ft_browse_the_bsp(s_node->front, tab, decalage_pere, pow(2, profondeur - (rang + 1)) ,  rang + 1, 4);
+		ft_browse_the_bsp(s_node->front, tab, decalage_pere, pow(2, profondeur_max - (rang + 1)) ,  rang + 1, profondeur_max);
 
 
 	if (s_node->back->is_leaf != TRUE)
-		ft_browse_the_bsp(s_node->back, tab, decalage_pere, -pow(2, profondeur - (rang + 1)) ,  rang + 1, 4);
+		ft_browse_the_bsp(s_node->back, tab, decalage_pere, -pow(2, profondeur_max - (rang + 1)) ,  rang + 1, profondeur_max);
 }
 
 void		ft_display_the_bsp(t_mynode *s_node, char **tab)
