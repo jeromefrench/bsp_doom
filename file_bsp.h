@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:51:31 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/03 14:41:46 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/06 10:43:51 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void			ft_split_polygon(t_mypolygon *poly,
 							t_mypolygon *back_split);
 
 
-void	ft_add_polygon(t_mypolygon **polygon_lst, t_mypolygon *polygon_node);
+void			ft_add_polygon(t_mypolygon **polygon_lst, t_mypolygon *polygon_node);
+void			ft_afficher_le_bsp(t_mynode *s_node);
 
 
 

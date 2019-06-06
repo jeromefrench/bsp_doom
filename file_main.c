@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 13:34:03 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/04 15:56:06 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/06 10:43:17 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			main(void)
 	ft_build_bsp_tree((&s_node), s_win.polygon_lst);
 	ft_afficher_le_bsp(&s_node);
 
-	ft_display_polygon();
+	//ft_display_polygon();
 
 
 	return (1);
