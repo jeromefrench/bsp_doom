@@ -6,7 +6,7 @@
 /*   By: jchardin <jerome.chardin@outlook.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/27 17:54:18 by jchardin          #+#    #+#             */
-/*   Updated: 2019/06/03 09:52:30 by jchardin         ###   ########.fr       */
+/*   Updated: 2019/06/06 10:46:20 by jchardin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ t_mypolygon		*ft_read_the_polygon_file(void)
 
 	line = NULL;
 	polygon_lst = NULL;
-	fd = open("./file_wall", O_RDWR);
+	fd = open("./file_wall_bsp", O_RDWR);
 	while(get_next_line(fd, &line))
 	{
 		vertex_lst = NULL;
