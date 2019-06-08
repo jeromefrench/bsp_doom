@@ -110,7 +110,7 @@ void	ft_add_polygon(t_mypolygon **polygon_lst, t_mypolygon *polygon_node)
 	}
 }
 
-t_mypolygon		*ft_read_the_polygon_file(void)
+t_mypolygon		*ft_read_the_polygon_file(char *argv)
 {
 	int				fd;
 	char			*line;
@@ -119,10 +119,17 @@ t_mypolygon		*ft_read_the_polygon_file(void)
 	t_mypolygon		*polygon_node;
 	t_mypolygon		*polygon_lst;
 	int				j;
+	int				id_counter;
 
+	id_counter = 1;
 	line = NULL;
 	polygon_lst = NULL;
-	fd = open("./file_wall_bsp", O_RDWR);
+	fd = open(argv, O_RDWR);
+	if (fd < 0)
+	{
+		printf("can not open file\n");
+		exit(0);
+	}
 	while(get_next_line(fd, &line))
 	{
 		vertex_lst = NULL;
@@ -140,6 +147,8 @@ t_mypolygon		*ft_read_the_polygon_file(void)
 			}
 		}
 		polygon_node = ft_create_polygon_node(vertex_lst);
+		polygon_node->id = id_counter;
+		id_counter++;
 		ft_add_polygon(&polygon_lst, polygon_node);
 	}
 	return (polygon_lst);

@@ -43,6 +43,7 @@ typedef struct			s_mypolygon
 	int					number_of_indices;       //nombre d'indices
 	int					*indices;                //la listes des indices apres triangulasisation
 	struct s_mypolygon	*next;                   //le prochain noeud dans la liste
+	int					id;
 }						t_mypolygon;
 
 //structure pour le bsp
@@ -70,7 +71,7 @@ int				ft_abs(int number);
 t_myvec			ft_calculate_normal_of_points(t_myvec vertex1, t_myvec vertex2, t_myvec vertex3);
 
 void			ft_display_the_polygon_list(t_mypolygon *polygon_lst);
-t_mypolygon		*ft_read_the_polygon_file(void);
+t_mypolygon		*ft_read_the_polygon_file(char *argv);
 void			ft_process_polygon(t_mypolygon *polygon_lst);
 int				ft_classify_polygon(t_mypolygon *plane, t_mypolygon *polygon_node);
 int				ft_classify_point(t_myvec point, t_mypolygon *plane);

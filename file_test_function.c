@@ -24,7 +24,7 @@ void			ft_display_the_polygon_list(t_mypolygon *polygon_lst)
 	i = 0;
 	while (polygon_lst != NULL)
 	{
-		printf("\nPolynome n=%d\n", i);
+		printf("\nPolygome id=%d\n", polygon_lst->id);
 		keep_vec = polygon_lst->vertex_lst;
 		j = 0;
 		while (polygon_lst->vertex_lst != NULL)

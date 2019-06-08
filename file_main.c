@@ -12,13 +12,18 @@
 
 #include "file_bsp.h"
 
-int			main(void)
+int			main(int argc, char** argv)
 {
 	t_mywin		s_win;
 	t_mynode	s_node;
 
+	if (argc != 2)
+	{
+		printf("usage : ./a.out file name\n");
+		return (-1);
+	}
 	printf("hello chef Inca\n");
-	s_win.polygon_lst = ft_read_the_polygon_file();
+	s_win.polygon_lst = ft_read_the_polygon_file(argv[1]);
 	ft_display_the_polygon_list(s_win.polygon_lst);
 	ft_process_polygon(s_win.polygon_lst);
 	ft_build_bsp_tree((&s_node), s_win.polygon_lst);

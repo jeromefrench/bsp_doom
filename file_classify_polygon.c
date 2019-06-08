@@ -42,7 +42,7 @@ int			ft_classify_polygon(t_mypolygon *plane, t_mypolygon *polygon_node)
 	keep = polygon_node->vertex_lst;
 	while (polygon_node->vertex_lst != NULL)
 	{
-		result = ft_classify_point(*polygon_node->vertex_lst, plane);//pas sur de l'etoile
+		result = ft_classify_point(*(polygon_node->vertex_lst), plane);//pas sur de l'etoile
 		if (result == FRONT)
 			front++;
 		else if (result == BACK)
